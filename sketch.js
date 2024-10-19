@@ -4,6 +4,11 @@ let yrot = 0.0;
 let yprime = 0.001;
 let yacc = 0;
 let earthTexture;
+let x, y, z;
+let lat = 38.907192;
+let long = -77.036873;
+let radius;
+
 
 function preload() {
   earthTexture = loadImage("world.topo.bathy.200411.3x5400x2700.jpg");
@@ -11,10 +16,16 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
+  
+  
   // createEasyCam(); // easycam
 }
 
 function draw() {
+  radius = min(width,height)/2.5;
+  orbitControl();
+  
+  convert(lat, long)
   background(0);
   noStroke();
   directionalLight(255, 255, 255, -1, 0, -1);
@@ -26,10 +37,15 @@ function draw() {
   rotateY(yrot);
   push ()
   texture(earthTexture);
-  sphere(min(width,height)/2.5, 24, 24);
+  sphere(radius, 24, 24);
   pop ()
   stroke(255)
   strokeWeight(5)
+
+  push()    //create the box
+  translate(x, y, z)
+  box(100);
+  pop()
   for(let i = 0; i<10; i++){
     //box(random(-400,400),random(-400,400),random(-400,400))
   }
@@ -37,4 +53,18 @@ function draw() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight, WEBGL);
+}
+
+function convert(lat, long) {
+  lat = (90 - lat) * (Math.PI / 180);
+  long = long * (Math.PI / 180);
+
+
+  const x = radius * Math.cos(lat) * Math.cos(long);
+  const y = radius * Math.cos(lat) * Math.sin(long);
+  const z = radius * Math.sin(lat);
+
+
+
+  // print(x, y, z);
 }
