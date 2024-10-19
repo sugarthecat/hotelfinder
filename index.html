@@ -3,6 +3,7 @@
   <head>
     <script src="p5.js"></script>
     <script src="sketch.js"></script>
+    <script src="cityReccommender.js"></script>
     <script src="slideManager.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
@@ -13,12 +14,12 @@
       <div id="slide1" class="slide" >
         <br/>
         <h1>Looking for your dream vacation?</h1>
-        <button onclick="switchToSlide(2)">Advance</button>
+        <button onclick="switchToSlide(2)">Continue</button>
       </div>
       <div id="slide2" class="slide" hidden>
         <br/>
-        <h1>Something something</h1>
-        <button onclick="switchToSlide(3)">Keep Going</button>
+        <h1>Help us make a guess by telling us where you've been before</h1>
+        <button onclick="switchToSlide(3)">That's All!</button>
       </div>
       <div id="slide3" class="clearslide slide" hidden>
         <br/>
@@ -26,6 +27,5 @@
 
       </div>
     </div>
-    <script src="sketch.js"></script>
   </body>
 </html>

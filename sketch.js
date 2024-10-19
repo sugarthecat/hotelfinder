@@ -1,6 +1,8 @@
 // image source: https://visibleearth.nasa.gov/images/73884/november-blue-marble-next-generation-w-topography-and-bathymetry
 
-let y = 0.0;
+let yrot = 0.0;
+let yprime = 0.001;
+let yacc = 0;
 let earthTexture;
 
 function preload() {
@@ -18,8 +20,10 @@ function draw() {
   directionalLight(255, 255, 255, -1, 0, -1);
   directionalLight(255, 255, 255, -1, 0, -1);
   directionalLight(255, 255, 255, -1, 0, -1);
-  y += 0.001;
-  rotateY(y);
+  yrot += yprime;
+  yprime += yacc;
+
+  rotateY(yrot);
   push ()
   texture(earthTexture);
   sphere(min(width,height)/2.5, 24, 24);
