@@ -1,12 +1,9 @@
 // image source: https://visibleearth.nasa.gov/images/73884/november-blue-marble-next-generation-w-topography-and-bathymetry
 
-let yrot = 0.0;
-let yprime = 0.001;
-let yacc = 0;
 let earthTexture;
 let x, y, z;
-let lat = 38.907192;
-let long = -77.036873;
+let lat = 0;
+let long = 0;
 let radius;
 
 
@@ -15,6 +12,7 @@ function preload() {
 }
 
 function setup() {
+  angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight, WEBGL);
   
   
@@ -31,24 +29,19 @@ function draw() {
   directionalLight(255, 255, 255, -1, 0, -1);
   directionalLight(255, 255, 255, -1, 0, -1);
   directionalLight(255, 255, 255, -1, 0, -1);
-  yrot += yprime;
-  yprime += yacc;
-
-  rotateY(yrot);
+  directionalLight(255, 255, 255, 1, 0, 1);
+  directionalLight(255, 255, 255, 1, 0, 1);
+  directionalLight(255, 255, 255, 1, 0, 1);
   push ()
   texture(earthTexture);
   sphere(radius, 24, 24);
   pop ()
   stroke(255)
   strokeWeight(5)
-
   push()    //create the box
   translate(x, y, z)
-  box(100);
+  box(20);
   pop()
-  for(let i = 0; i<10; i++){
-    //box(random(-400,400),random(-400,400),random(-400,400))
-  }
 }
 
 function windowResized() {
@@ -56,15 +49,13 @@ function windowResized() {
 }
 
 function convert(lat, long) {
-  lat = (90 - lat) * (Math.PI / 180);
-  long = long * (Math.PI / 180);
+  //lat = (90 - lat) * (Math.PI / 180);
+  //long = long * (Math.PI / 180);
 
 
-  const x = radius * Math.cos(lat) * Math.cos(long);
-  const y = radius * Math.cos(lat) * Math.sin(long);
-  const z = radius * Math.sin(lat);
+  x = radius * cos(lat) * cos(long - 90);
+  z = radius * cos(lat) * sin(long - 90);
+  //console.log(frameCount/100)
+  y = -radius * sin(lat);
 
-
-
-  // print(x, y, z);
 }
