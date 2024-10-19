@@ -18,7 +18,6 @@ function draw() {
   directionalLight(255, 255, 255, -1, 0, -1);
   directionalLight(255, 255, 255, -1, 0, -1);
   directionalLight(255, 255, 255, -1, 0, -1);
-  rotateZ(radians(23.5));
   y += 0.001;
   rotateY(y);
   push ()
