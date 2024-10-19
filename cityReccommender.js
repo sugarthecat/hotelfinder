@@ -28,6 +28,33 @@ function parseCities(citylist){
 function reccommendCities(citylist){
     let parse = parseCities(citylist)
     let newCities = parse.newCities;
+    let topCities = []
+    for(let i = 0; i<5; i++){
+        topCities[i] = newCities[i];
+    }
     let prevCities = parse.prevCities;
-    
+    //data analysis time
+    let latitudes = getField(prevCities,"lat")
+
+    return latitudes
+}
+
+function getField(arr,field){
+    let newArr = []
+    for(let i = 0; i<arr.length; i++){
+        newArr.push(arr[i][field]);
+    }
+    return newArr
+}
+
+function mean(arr){
+    if(arr.length == 0){
+        console.error("Attempted to find median of an empty array")
+        return 0;
+    }
+    let sum = 0
+    for(let i = 0; i<arr.length; i++){
+        sum += arr[i]
+    }
+    return sum / arr.length;
 }
