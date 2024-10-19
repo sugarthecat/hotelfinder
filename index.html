@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
-    <!--     easycam -->
-    <!--     <script src="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.min.js"></script> -->
+    <script src="p5.js"></script>
+    <script src="sketch.js"></script>
+    <script src="slideManager.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <meta charset="utf-8" />
   </head>
   <body>
     <main></main>
+    <div id="overlay">
+      <div id="slide1" class="slide" >
+        <br/>
+        <h1>Looking for your dream vacation?</h1>
+        <button onclick="switchToSlide(2)">Advance</button>
+      </div>
+      <div id="slide2" class="slide" hidden>
+        <br/>
+        <h1>Something something</h1>
+        <button onclick="switchToSlide(3)">Keep Going</button>
+      </div>
+      <div id="slide3" class="clearslide slide" hidden>
+        <br/>
+        <h1>Loading your dream vacation...</h1>
+
+      </div>
+    </div>
     <script src="sketch.js"></script>
   </body>
 </html>

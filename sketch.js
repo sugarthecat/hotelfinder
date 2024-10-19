@@ -22,7 +22,7 @@ function draw() {
   rotateY(y);
   push ()
   texture(earthTexture);
-  sphere(200, 24, 24);
+  sphere(min(width,height)/2.5, 24, 24);
   pop ()
   stroke(255)
   strokeWeight(5)
