@@ -54,6 +54,29 @@ p {
   top: 85%;
 }
 
+.cityInfo {
+  position: absolute;
+  background-color:rgba(255, 255, 255, 0.6);
+  left: 20px;
+  right:85%;
+  top: 0px;
+  bottom:40%;
+}
+
+.hotelInfo {
+  position: absolute;
+  background-color:rgba(255, 255, 255, 0.6);
+  right:20px;
+  left: 85%;
+  top: 20px;
+  bottom: 40%;
+  color:300px;
+}
+
+#hotelName {
+  font-weight: bold;
+}
+
 button {
   background-color: orange;
   border: none;
