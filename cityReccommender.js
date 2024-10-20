@@ -1,3 +1,6 @@
+//top cities is a global variable, can be accessed in sketch.js
+var topCities = []
+
 /**
  * @param citylist A list of strings, with each one corresponding to a city.
  */
@@ -28,7 +31,6 @@ function parseCities(citylist) {
 function reccommendCities(citylist) {
     let parse = parseCities(citylist)
     let newCities = parse.newCities;
-    let topCities = []
     for (let i = 0; i < 6; i++) {
         topCities[i] = newCities[i];
     }
@@ -78,6 +80,10 @@ function reccommendCities(citylist) {
         }
     }
     return topCities
+}
+
+function getTopCities(){
+    return topCities;
 }
 
 function getField(arr, field) {
