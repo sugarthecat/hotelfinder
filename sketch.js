@@ -107,6 +107,7 @@ function draw() {
     targetLong += 360;
     currentLong += 360;
   }
+  console.log(targetLong,currentLong)
   if (panning) {
     setTargetZoom(0, 0, radius * 2)
     targetLong -= max(deltaTime,100) * 0.01
@@ -114,7 +115,7 @@ function draw() {
   } else {
     setTargetZoom(0, 0, radius * 1.3)
   }
-  currentLong = lerp(currentLong, 180 - targetLong, 0.02)
+  currentLong = lerp(currentLong, targetLong, 0.02)
   currentLat = lerp(currentLat, targetLat, 0.02)
 
 

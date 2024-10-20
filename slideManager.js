@@ -23,7 +23,7 @@ function switchToSlide(slide){
     }
     if(slide > 3){
         targetLat = destinations[slide-4].lat;
-        targetLong = destinations[slide-4].lng;
+        targetLong = 180-destinations[slide-4].lng;
     }
     document.getElementById(`slide${currSlide}`).hidden = true;
     //print((i+1) + ") " + destinations[i].city)
