@@ -1,34 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="p5.js"></script>
-    <script src="sketch.js"></script>
-    <script src="cityReccommender.js"></script>
-    <script src="slideManager.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <meta charset="utf-8" />
-  </head>
-  <body>
-    <main></main>
 
-    <div id="overlay">
-      <button id="pan">Pan to Next City</button>
+<head>
+  <script src="p5.js"></script>
+  <script src="sketch.js"></script>
+  <script src="cityReccommender.js"></script>
+  <script src="slideManager.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <meta charset="utf-8" />
+</head>
 
-      <div id="slide1" class="slide" >
-        <br/>
-        <h1>Looking for your dream vacation?</h1>
-        <button onclick="switchToSlide(2)">Continue</button>
-      </div>
-      <div id="slide2" class="slide" hidden>
-        <br/>
-        <h1>Help us make a guess by telling us where you've been before</h1>
-        <button onclick="switchToSlide(3)">That's All!</button>
-      </div>
-      <div id="slide3" class="clearslide slide" hidden>
-        <br/>
-        <h1>Loading your dream vacation...</h1>
-
-      </div> 
+<body>
+  <main></main>
+  <div id="overlay">
+    <div id="slide0" class="slide" hidden>
+      <br />
+      <h1>Please enter more valid cities to continue.</h1>
+      <button onclick="switchToSlide(2)">Return</button>
     </div>
-  </body>
+    <div id="slide1" class="slide">
+      <br />
+      <h1>Looking for your dream vacation?</h1>
+      <button onclick="switchToSlide(2)">Continue</button>
+    </div>
+    <div id="slide2" class="slide" hidden>
+      <br />
+      <h1>What were some of your favorite destinations?</h1>
+      <p>
+        <input autocomplete="off" id="city1" />
+        <input autocomplete="off" id="city2" />
+      </p>
+      <p>
+        <input autocomplete="off" id="city3" />
+        <input autocomplete="off" id="city4" />
+      </p>
+      <p>
+        <input autocomplete="off" id="city5" />
+        <input autocomplete="off" id="city6" />
+      </p>
+      <button onclick="switchToSlide(3)">That's All!</button>
+    </div>
+    <div id="slide3" class="clearslide slide" hidden>
+      <br />
+      <h1>Loading your vacation...</h1>
+
+      <button onclick="switchToSlide(4)">Continue</button>
+    </div>
+  </div>
+</body>
+
 </html>

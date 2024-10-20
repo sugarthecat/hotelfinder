@@ -1,44 +1,70 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
+  /* Hide scrollbars */
 }
+
 canvas {
   display: block;
 }
 
-#overlay{
-  position:absolute;
+input {
+  height: 20px;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+p {
+  margin: 5px 0px;
+}
+
+#overlay {
+  position: absolute;
   text-align: center;
   padding: 0% 25%;
   top: 25%;
-  bottom:25%;
-  left:0%;
-  right:0%;
-  background-color:rgba(255, 255,255, 0.2);
+  bottom: 25%;
+  left: 0%;
+  right: 0%;
 }
 
-.slide{
+
+.slide {
   font-family: Arial, sans-serif;
-  margin:0px;
-  padding:1px 0px;
-  background-color:rgba(255, 255,255, 0.7);
-  width:100%;
-  height:100%;
+  margin: 0px;
+  padding: 1px 0px;
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
 }
-.slide.clearslide{
-  background-color:rgba(255, 255,255, 0);
-  color:white;
 
+.slide.clearslide {
+  background-color: rgba(255, 255, 255, 0);
+  color: white;
 }
-button{
+
+.slide.cityslide {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.8);
+  height: 50%;
+  width: 50%;
+  top: 85%;
+}
+
+button {
   background-color: orange;
   border: none;
   padding: 16px;
   transition: 300ms;
+  border-radius: 10px;
 }
 
-button:hover{
+button:hover {
   background-color: #dddd00;
   transition: 300ms;
 }
