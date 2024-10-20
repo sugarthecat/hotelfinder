@@ -97,12 +97,7 @@ function draw() {
   //250
 
   noStroke();
-  // directionalLight(255, 255, 255, -1, 0, -1);
-  // directionalLight(255, 255, 255, -1, 0, -1);
-  // directionalLight(255, 255, 255, -1, 0, -1);
-  // directionalLight(255, 255, 255, 1, 0, 1);
-  // directionalLight(255, 255, 255, 1, 0, 1);
-  // directionalLight(255, 255, 255, 1, 0, 1);
+  //loop around earth
   if (currentLong > 360 && targetLong > 360) {
     currentLong -= 360;
     targetLong -= 360;
@@ -111,6 +106,7 @@ function draw() {
     targetLong += 360;
     currentLong += 360;
   }
+  //panning / non-panning directions
   if (panning) {
     setTargetZoom(0, 0, radius * 2)
     targetLong -= min(deltaTime, 100) * 0.01
@@ -121,30 +117,13 @@ function draw() {
   currentLong = lerp(currentLong, targetLong, 0.02)
   currentLat = lerp(currentLat, targetLat, 0.02)
 
+
   if (topCities.length > 0) {
     getLongLat(topCities);
     let currSlide = getCurrSlide();
     let currCity = topCities[currSlide];
     if ([0, 1, 2, 3, 4, 5].includes(currSlide)) {
       console.log(topCities[currSlide].city)
-
-      document.getElementById("city").innerText = topCities[currSlide].city
-      document.getElementById("country").innerText = topCities[currSlide].country
-      document.getElementById("population").innerText = topCities[currSlide].population
-      document.getElementById("GDP").innerText = topCities[currSlide].GDP
-
-
-      // let cityNameToLookup = topCities[currSlide].city;
-
-      fetch("tophotels.json") // Replace with your API endpoint
-        .then(response => response.json())
-        .then(data => {
-          var hotelNames = data
-            .filter(hotel => hotel[" cityName"] === "Tirana")
-            .map(hotel => hotel.HotelName);
-
-          print(hotelNames);
-        })
     }
   }
 
@@ -162,11 +141,8 @@ function draw() {
   sphere(radius, 24, 24);
   rotateX(0.01)
   pop()
-  //stroke(255)
-  //strokeWeight(5)
 
-  push()    //Beijing for a test
-  convert(39.904202, 116.407394)
+  push()
   translate(x, y, z)
   //sphere(1);
   //scale(1)
@@ -190,7 +166,6 @@ function draw() {
     //rotateX(180);
     push()
     translate(x, y + hoverHeight * sin(frameCount * hoverSpeed), z)  //sin oscilates
-    //z-4
     rotateX(180);
     fill(255, 0, 0)
     model(marker);
@@ -199,18 +174,13 @@ function draw() {
   }
 }
 
-
-
 function getLongLat(topCities) {
-
-  // print(topCities);
   citiesLat = [];
   citiesLong = [];
   for (let j = 0; j < 6; j++) {
     citiesLat.push(topCities[j].lat)
     citiesLong.push(topCities[j].lng)
   }
-
 }
 
 
@@ -219,36 +189,19 @@ function windowResized() {
 }
 
 function convert(lat, long) {
-
   long = -long;
 
   x = radius * cos(lat) * cos(long - 90);
   z = radius * cos(lat) * sin(long - 90);
   y = -radius * sin(lat);
-
 }
 
 function getCamera() {
-
   camx = map(mouseX, 0, width, -400, 400);
   camy = map(mouseY, 0, height, -400, 400);
   camz = map(mouseY, 0, height, -500, 500);
-
 }
 
 function setTargetZoom(x, y, newZoom) {
   targetZoom = newZoom;
 }
-
-// function temp() {
-//   print("Hello!")
-
-
-//   currentLat = citiesLat[3];
-//   currentLong = citiesLong[3];
-
-//  // currentLong = lerp(currentLong, 180-targetLong, 0.02)
-//   //currentLat= lerp(currentLat, targetLat, 0.02)
-//   rotate(currentLat, [-1, 0, 0]);
-//   rotate(currentLong, [0, 1, 0]);
-// }
