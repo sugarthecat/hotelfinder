@@ -23,6 +23,7 @@ let hoverSpeed = 2
 let hoverHeight = 2;
 
 
+//city data
 
 let citiesLat = []
 let citiesLong = []
@@ -73,6 +74,8 @@ function setup() {
   }
   setTargetZoom(0, 0, min(width, height) / 1.25);
   // createEasyCam(); // easycam
+
+
 }
 
 function draw() {
@@ -118,6 +121,35 @@ function draw() {
   topCities = getTopCities();
 
 
+
+
+  if(topCities.length>0)  {
+  getLongLat(topCities);
+  let currSlide = getCurrSlide();
+     let currCity = topCities[currSlide];
+     if([0, 1, 2, 3, 4, 5].includes(currSlide)) {
+     console.log(topCities[currSlide].city)
+
+    document.getElementById("city").innerText = topCities[currSlide].city
+    document.getElementById("country").innerText = topCities[currSlide].country
+    document.getElementById("population").innerText = topCities[currSlide].population
+    document.getElementById("GDP").innerText = topCities[currSlide].GDP
+
+
+   // let cityNameToLookup = topCities[currSlide].city;
+
+    fetch("tophotels.json") // Replace with your API endpoint
+    .then(response => response.json())
+    .then(data => {
+        var hotelNames = data
+            .filter(hotel => hotel[" cityName"] === "Tirana")
+            .map(hotel => hotel.HotelName);
+        
+        print(hotelNames);
+    })
+     }
+  }
+
   rotate(currentLat, [-1, 0, 0]);
   rotate(currentLong, [0, 1, 0]);
   //sleep(1000);
@@ -144,18 +176,13 @@ function draw() {
   pop()
 
   
-  if(topCities.length > 0) { //if top cites isn't empty, create the points. 
-    getLongLat(topCities)
-  }
   
+
+  
+
+
   for(let i = 0; i<6;i++) { //create the spheres
   push()
-  //print(document.getElementById(`slide${1}title) `));
-  if(topCities.length > 0) {
-  let currentDiv = document.getElementById(`slide3`);
-  print(currentDiv)
-}
-
   convert(citiesLat[i], citiesLong[i])
   translate(x, y, z)
   sphere(1)
@@ -170,14 +197,13 @@ function draw() {
   pop()
   
   }
-
-
-
 }
+
 
 
 function getLongLat(topCities){
 
+ // print(topCities);
   citiesLat=[];
   citiesLong=[];
   for(let j = 0; j<6; j++) {
