@@ -111,7 +111,6 @@ function draw() {
     targetLong += 360;
     currentLong += 360;
   }
-  console.log(targetLong, currentLong)
   if (panning) {
     setTargetZoom(0, 0, radius * 2)
     targetLong -= min(deltaTime, 100) * 0.01
@@ -122,37 +121,31 @@ function draw() {
   currentLong = lerp(currentLong, targetLong, 0.02)
   currentLat = lerp(currentLat, targetLat, 0.02)
 
+  if (topCities.length > 0) {
+    getLongLat(topCities);
+    let currSlide = getCurrSlide();
+    let currCity = topCities[currSlide];
+    if ([0, 1, 2, 3, 4, 5].includes(currSlide)) {
+      console.log(topCities[currSlide].city)
 
-  topCities = getTopCities();
-
-
-
-
-  if(topCities.length>0)  {
-  getLongLat(topCities);
-  let currSlide = getCurrSlide();
-     let currCity = topCities[currSlide];
-     if([0, 1, 2, 3, 4, 5].includes(currSlide)) {
-     console.log(topCities[currSlide].city)
-
-    document.getElementById("city").innerText = topCities[currSlide].city
-    document.getElementById("country").innerText = topCities[currSlide].country
-    document.getElementById("population").innerText = topCities[currSlide].population
-    document.getElementById("GDP").innerText = topCities[currSlide].GDP
+      document.getElementById("city").innerText = topCities[currSlide].city
+      document.getElementById("country").innerText = topCities[currSlide].country
+      document.getElementById("population").innerText = topCities[currSlide].population
+      document.getElementById("GDP").innerText = topCities[currSlide].GDP
 
 
-   // let cityNameToLookup = topCities[currSlide].city;
+      // let cityNameToLookup = topCities[currSlide].city;
 
-    fetch("tophotels.json") // Replace with your API endpoint
-    .then(response => response.json())
-    .then(data => {
-        var hotelNames = data
+      fetch("tophotels.json") // Replace with your API endpoint
+        .then(response => response.json())
+        .then(data => {
+          var hotelNames = data
             .filter(hotel => hotel[" cityName"] === "Tirana")
             .map(hotel => hotel.HotelName);
-        
-        print(hotelNames);
-    })
-     }
+
+          print(hotelNames);
+        })
+    }
   }
 
   rotate(currentLat, [-1, 0, 0]);
@@ -188,7 +181,7 @@ function draw() {
   for (let i = 0; i < 6; i++) { //create the spheres
     push()
     //print(document.getElementById(`slide${1}title) `));
-    
+
 
     convert(citiesLat[i], citiesLong[i])
     translate(x, y, z)
@@ -210,7 +203,7 @@ function draw() {
 
 function getLongLat(topCities) {
 
- // print(topCities);
+  // print(topCities);
   citiesLat = [];
   citiesLong = [];
   for (let j = 0; j < 6; j++) {
