@@ -34,38 +34,50 @@ function reccommendCities(citylist) {
     }
     let prevCities = parse.prevCities;
     //data analysis time
+    //population (compared logarithmically)
+    let logpops = applyFunction(getField(prevCities, "population"), log)
+    let meanlogpop = mean(logpops)
+    let popVariance = max(0.001, meanVariance(logpops, meanlogpop))
+    //GDP per capita
+    let gdpPerCapita = divideArr(getField(prevCities, "GDP"), getField(prevCities, "population"))
+    let meanGDPCapita = mean(gdpPerCapita);
+    let meanWealthVariance = max(0.001, meanVariance(gdpPerCapita, meanGDPCapita));
+    //distance
     let latitudes = getField(prevCities, "lat")
     let avgLatitude = mean(latitudes)
-    let latVariance = max(0.001,meanVariance(latitudes,avgLatitude))
-    //console.log(latitudes,avgLatitude,latVariance)
-    let logpops = applyFunction(getField(prevCities,"population"),log)
-    let meanlogpop = mean(logpops)
-    let popVariance = max(0.001,meanVariance(logpops,meanlogpop))
-    //
-    let gdpPerCapita = divideArr(getField(prevCities,"GDP"),getField(prevCities,"population"))
-    let meanGDPCapita = mean(gdpPerCapita);
-    let meanWealthVariance = max(0.001,meanVariance(gdpPerCapita,meanGDPCapita));
+    let longidutes = getField(prevCities, "lng");
+    let avgLong = mean(longidutes);
+    let distA = avgLoopDist(longidutes, avgLong - 180)
+    let distB = avgLoopDist(longidutes, avgLong)
+    if (distA < distB) {
+        avgLong = avgLong - 180;
+    }
+
+    let distFunction = function (city) { return cityDist({ lng: avgLong, lat: avgLatitude }, city) }
+    let distances = applyFunction(prevCities, distFunction);
+    let avgDist = mean(distances);
     //console.log(logpops,meanlogpop,popVariance)
     function scoringFunction(city) {
         let score = 0;
-        score -= Math.abs(avgLatitude - city.lat) / latVariance;
+        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist;
         score -= Math.abs(meanlogpop - log(city.population)) / popVariance;
         score -= Math.abs(meanGDPCapita - city.GDP / city.population) / meanWealthVariance;
         return score
     }
+    //console.log(scoringFunction(cities[0]))
     for (let i = 0; i < newCities.length; i++) {
         if (scoringFunction(topCities[4]) < scoringFunction(newCities[i])) {
             topCities[4] = newCities[i];
             let j = 4;
-            while(j > 0 && scoringFunction(topCities[j-1]) < scoringFunction(topCities[j])){
-                let temp = topCities[j-1];
-                topCities[j-1]= topCities[j];
+            while (j > 0 && scoringFunction(topCities[j - 1]) < scoringFunction(topCities[j])) {
+                let temp = topCities[j - 1];
+                topCities[j - 1] = topCities[j];
                 topCities[j] = temp;
                 j--;
             }
         }
     }
-    return [topCities,prevCities]
+    return topCities
 }
 
 function getField(arr, field) {
@@ -98,7 +110,7 @@ function median(arr) {
     return arr[Math.floor(arr.length / 2)]
 }
 
-function applyFunction(arr,f) {
+function applyFunction(arr, f) {
     let newArr = []
     for (let i = 0; i < arr.length; i++) {
         newArr.push(f(arr[i]));
@@ -106,19 +118,47 @@ function applyFunction(arr,f) {
     return newArr
 }
 
-function meanVariance(arr,val){
+function meanVariance(arr, val) {
     let sum = 0
     for (let i = 0; i < arr.length; i++) {
-        sum += Math.abs(val-arr[i])
+        sum += Math.abs(val - arr[i])
     }
-    return sum/arr.length
+    return sum / arr.length
 }
 
-function divideArr(arr1,arr2){
+function divideArr(arr1, arr2) {
     let newArr = []
     for (let i = 0; i < arr1.length; i++) {
-        newArr.push((arr1[i])/arr2[i]);
+        newArr.push((arr1[i]) / arr2[i]);
     }
     return newArr
 
+}
+function loopDist(point1, point2) {
+    return min(abs(point1 - point2)/*, abs(360 - abs(point1 - point2))*/)
+}
+function avgLoopDist(arr, point) {
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += loopDist(point, arr[i])
+    }
+    return sum / arr.length;
+}
+//credit:
+//https://www.movable-type.co.uk/scripts/latlong.html
+function cityDist(city1, city2) {
+    const R = 6371e3; // metres
+    const φ1 = city1.lat * Math.PI / 180; // φ, λ in radians
+    const φ2 = city2.lat * Math.PI / 180;
+    const Δφ = (city2.lat - city1.lat) * Math.PI / 180;
+    const Δλ = (city2.lng - city1.lng) * Math.PI / 180;
+
+    const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+    const d = R * c; // in metres
+    return d;
 }
