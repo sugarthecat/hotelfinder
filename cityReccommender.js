@@ -29,7 +29,7 @@ function reccommendCities(citylist) {
     let parse = parseCities(citylist)
     let newCities = parse.newCities;
     let topCities = []
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         topCities[i] = newCities[i];
     }
     let prevCities = parse.prevCities;
@@ -47,9 +47,7 @@ function reccommendCities(citylist) {
     let avgLatitude = mean(latitudes)
     let longidutes = getField(prevCities, "lng");
     let avgLong = mean(longidutes);
-    let distA = avgLoopDist(longidutes, avgLong - 180)
-    let distB = avgLoopDist(longidutes, avgLong)
-    if (distA < distB) {
+    if (avgLoopDist(longidutes, avgLong - 180) < avgLoopDist(longidutes, avgLong)) {
         avgLong = avgLong - 180;
     }
 
@@ -59,16 +57,18 @@ function reccommendCities(citylist) {
     //console.log(logpops,meanlogpop,popVariance)
     function scoringFunction(city) {
         let score = 0;
-        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist;
+        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist / 2;
         score -= Math.abs(meanlogpop - log(city.population)) / popVariance;
         score -= Math.abs(meanGDPCapita - city.GDP / city.population) / meanWealthVariance;
         return score
     }
-    //console.log(scoringFunction(cities[0]))
+    if (isNaN(scoringFunction(newCities[0]))) {
+        console.error("City scoring function producing invalid input")
+    }
     for (let i = 0; i < newCities.length; i++) {
-        if (scoringFunction(topCities[4]) < scoringFunction(newCities[i])) {
-            topCities[4] = newCities[i];
-            let j = 4;
+        if (scoringFunction(topCities[5]) < scoringFunction(newCities[i])) {
+            topCities[5] = newCities[i];
+            let j = 5;
             while (j > 0 && scoringFunction(topCities[j - 1]) < scoringFunction(topCities[j])) {
                 let temp = topCities[j - 1];
                 topCities[j - 1] = topCities[j];

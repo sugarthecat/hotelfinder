@@ -9,7 +9,6 @@ body {
 canvas {
   display: block;
 }
-
 input {
   height: 20px;
   border-radius: 5px;
@@ -31,7 +30,6 @@ p {
   left: 0%;
   right: 0%;
 }
-
 
 .slide {
   font-family: Arial, sans-serif;
@@ -67,4 +65,11 @@ button {
 button:hover {
   background-color: #dddd00;
   transition: 300ms;
+}
+button.cancel{
+  position: absolute;
+  top:5px;
+  left: 5px;
+  width:50px;
+  height: 50px;
 }

@@ -74,10 +74,9 @@ function setup() {
 
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight, WEBGL);
-  createCity()
 
   let overlay = document.getElementById("overlay")
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     let newSlide = document.createElement("div");
     newSlide.id = `slide${i + 4}`
     newSlide.className = "cityslide slide"
@@ -88,16 +87,23 @@ function setup() {
     let nxtBtn = document.createElement('button');
     nxtBtn.innerText = "Next"
     nxtBtn.onclick = function () {
-      switchToSlide((i + 1) % 5 + 4)
+      switchToSlide((i + 1) % 6 + 4)
     }
     let prevBtn = document.createElement('button');
     prevBtn.innerText = "Prev"
     prevBtn.onclick = function () {
-      switchToSlide((i + 4) % 5 + 4)
+      switchToSlide((i + 5) % 6 + 4)
     }
+    let returnBtn = document.createElement('button');
+    returnBtn.innerText = "X";
+    returnBtn.onclick = function(){
+      switchToSlide(2);
+    }
+    returnBtn.className = "cancel"
     newSlide.append(title)
     newSlide.append(prevBtn)
     newSlide.append(nxtBtn)
+    newSlide.append(returnBtn)
     overlay.appendChild(newSlide)
   }
   setTargetZoom(0, 0, min(width, height) / 1.25);
@@ -128,9 +134,17 @@ function draw() {
   // directionalLight(255, 255, 255, 1, 0, 1);
   // directionalLight(255, 255, 255, 1, 0, 1);
   // directionalLight(255, 255, 255, 1, 0, 1);
+  if(currentLong > 360 && targetLong > 360){
+    currentLong -= 360;
+    targetLong -= 360;
+  }
+  if(currentLong < 0 && targetLong < 0){
+    targetLong += 360;
+    currentLong += 360;
+  }
   if (panning) {
     setTargetZoom(0, 0, radius * 2)
-    targetLong += deltaTime * 0.01
+    targetLong -= max(deltaTime,100) * 0.01
     targetLat = lerp(targetLat, 0, 0.02)
   } else {
     setTargetZoom(0, 0, radius * 1.3)
@@ -173,13 +187,6 @@ function draw() {
 }
 
 
-function createCity() {
-  setInterval(writeStuff, 2000)
-}
-
-function writeStuff() {
-  print("hello");
-}
 function addPoint() {
   push()
   convert(citiesLat[i], citiesLong[i])

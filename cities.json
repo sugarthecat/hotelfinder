@@ -1305,15 +1305,6 @@
         "GDP": null
     },
     {
-        "city": "Brooklyn",
-        "city_ascii": "Brooklyn",
-        "lat": 40.6501,
-        "lng": -73.9496,
-        "country": "United States",
-        "population": 2629150.0,
-        "GDP": 214788901088.58856
-    },
-    {
         "city": "Ibadan",
         "city_ascii": "Ibadan",
         "lat": 7.38,
@@ -1492,15 +1483,6 @@
         "country": "Germany",
         "population": 2362000.0,
         "GDP": 124585474978.54774
-    },
-    {
-        "city": "Queens",
-        "city_ascii": "Queens",
-        "lat": 40.7498,
-        "lng": -73.7976,
-        "country": "United States",
-        "population": 2333054.0,
-        "GDP": 190599282977.5159
     },
     {
         "city": "Vancouver",
@@ -2014,15 +1996,6 @@
         "country": "Ghana",
         "population": 1646000.0,
         "GDP": 3684008102.190926
-    },
-    {
-        "city": "Manhattan",
-        "city_ascii": "Manhattan",
-        "lat": 40.7834,
-        "lng": -73.9662,
-        "country": "United States",
-        "population": 1643734.0,
-        "GDP": 134285156625.50636
     },
     {
         "city": "Austin",

@@ -13,9 +13,9 @@ function switchToSlide(slide){
             return;
         }else{
             destinations = reccommendCities(userCities);
-            console.log(destinations)
+            //console.log(destinations)
             for(let i = 0; i<destinations.length; i++){
-                document.getElementById(`slide${i}title`).innerText = destinations[i].city
+                document.getElementById(`slide${i}title`).innerText = (i+1) + ") " + destinations[i].city
             }
         }
     }
