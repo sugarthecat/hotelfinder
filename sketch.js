@@ -48,6 +48,9 @@ function setup() {
     let title = document.createElement("h1");
     title.id = `slide${i}title`;
     title.innerText = "Slide " + (i + 1)
+    let country = document.createElement("h2");
+    country.id = `slide${i}country`;
+    country.innerText = "Slide " + (i + 1)
     let nxtBtn = document.createElement('button');
     nxtBtn.innerText = "Next"
     nxtBtn.onclick = function () {
@@ -60,16 +63,17 @@ function setup() {
     }
     let returnBtn = document.createElement('button'); //Exit button
     returnBtn.innerText = "X";
-    returnBtn.onclick = function(){
+    returnBtn.onclick = function () {
       switchToSlide(2);
     }
     returnBtn.className = "cancel"
     newSlide.append(title)
+    newSlide.append(country)
     newSlide.append(prevBtn)
     newSlide.append(nxtBtn)
     newSlide.append(returnBtn)
     overlay.appendChild(newSlide)
-   // print(title);
+    // print(title);
   }
   setTargetZoom(0, 0, min(width, height) / 1.25);
   // createEasyCam(); // easycam
@@ -96,28 +100,24 @@ function draw() {
   // directionalLight(255, 255, 255, 1, 0, 1);
   // directionalLight(255, 255, 255, 1, 0, 1);
   // directionalLight(255, 255, 255, 1, 0, 1);
-  if(currentLong > 360 && targetLong > 360){
+  if (currentLong > 360 && targetLong > 360) {
     currentLong -= 360;
     targetLong -= 360;
   }
-  if(currentLong < 0 && targetLong < 0){
+  if (currentLong < 0 && targetLong < 0) {
     targetLong += 360;
     currentLong += 360;
   }
-  console.log(targetLong,currentLong)
+  console.log(targetLong, currentLong)
   if (panning) {
     setTargetZoom(0, 0, radius * 2)
-    targetLong -= max(deltaTime,100) * 0.01
+    targetLong -= min(deltaTime, 100) * 0.01
     targetLat = lerp(targetLat, 0, 0.02)
   } else {
     setTargetZoom(0, 0, radius * 1.3)
   }
   currentLong = lerp(currentLong, targetLong, 0.02)
   currentLat = lerp(currentLat, targetLat, 0.02)
-
-
-  topCities = getTopCities();
-
 
   rotate(currentLat, [-1, 0, 0]);
   rotate(currentLong, [0, 1, 0]);
@@ -144,32 +144,29 @@ function draw() {
   model(marker)
   pop()
 
-  
-  if(topCities.length > 0) { //if top cites isn't empty, create the points. 
+
+  if (topCities.length > 0) { //if top cites isn't empty, create the points. 
     getLongLat(topCities)
   }
-  
-  for(let i = 0; i<6;i++) { //create the spheres
-  push()
-  //print(document.getElementById(`slide${1}title) `));
-  if(topCities.length > 0) {
-  let currentDiv = document.getElementById(`slide3`);
-  print(currentDiv)
-}
 
-  convert(citiesLat[i], citiesLong[i])
-  translate(x, y, z)
-  sphere(1)
-  pop()
-  //rotateX(180);
-  push()
-  translate(x, y+hoverHeight * sin(frameCount * hoverSpeed), z)  //sin oscilates
-  //z-4
-  rotateX(180);
-  fill(255, 0, 0)
-  model(marker);
-  pop()
-  
+  for (let i = 0; i < 6; i++) { //create the spheres
+    push()
+    //print(document.getElementById(`slide${1}title) `));
+    
+
+    convert(citiesLat[i], citiesLong[i])
+    translate(x, y, z)
+    sphere(1)
+    pop()
+    //rotateX(180);
+    push()
+    translate(x, y + hoverHeight * sin(frameCount * hoverSpeed), z)  //sin oscilates
+    //z-4
+    rotateX(180);
+    fill(255, 0, 0)
+    model(marker);
+    pop()
+
   }
 
 
@@ -177,11 +174,11 @@ function draw() {
 }
 
 
-function getLongLat(topCities){
+function getLongLat(topCities) {
 
-  citiesLat=[];
-  citiesLong=[];
-  for(let j = 0; j<6; j++) {
+  citiesLat = [];
+  citiesLong = [];
+  for (let j = 0; j < 6; j++) {
     citiesLat.push(topCities[j].lat)
     citiesLong.push(topCities[j].lng)
   }

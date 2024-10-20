@@ -67,7 +67,7 @@ function reccommendCities(citylist) {
     if (isNaN(scoringFunction(newCities[0]))) {
         console.error("City scoring function producing invalid input")
     }
-    for (let i = 0; i < newCities.length; i++) {
+    for (let i = 6; i < newCities.length; i++) {
         if (scoringFunction(topCities[5]) < scoringFunction(newCities[i])) {
             topCities[5] = newCities[i];
             let j = 5;
@@ -80,10 +80,6 @@ function reccommendCities(citylist) {
         }
     }
     return topCities
-}
-
-function getTopCities(){
-    return topCities;
 }
 
 function getField(arr, field) {
