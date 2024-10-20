@@ -112,7 +112,7 @@ function draw() {
   rotate(currentLat, [-1, 0, 0]);
   rotate(currentLong, [0, 1, 0]);
   //sleep(1000);
-  //setTargetZoom(0, 0, 330);
+  setTargetZoom(0, 0, 330);
 
 
 
