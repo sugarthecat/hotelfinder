@@ -38,6 +38,9 @@ function switchToSlide(slide) {
         for(let i = 0; i<hotels.length; i++){
             document.getElementById(`hotel${i+1}`).innerText = stringifyHotel(hotels[i])
         }
+    }else{
+        
+        document.getElementById("hotelInfo").hidden = true
     }
     document.getElementById(`slide${currSlide}`).hidden = true;
     //print((i+1) + ") " + destinations[i].city)
