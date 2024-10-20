@@ -37,6 +37,8 @@ function preload() {
 
 function setup() {
 
+  console.log("★");
+
   angleMode(DEGREES)
   createCanvas(windowWidth, windowHeight, WEBGL);
 
@@ -74,11 +76,8 @@ function setup() {
     newSlide.append(nxtBtn)
     newSlide.append(returnBtn)
     overlay.appendChild(newSlide)
-    // print(title);
   }
   setTargetZoom(0, 0, min(width, height) / 1.25);
-  // createEasyCam(); // easycam
-
 
 }
 
@@ -124,12 +123,6 @@ function draw() {
 
   rotate(currentLat, [-1, 0, 0]);
   rotate(currentLong, [0, 1, 0]);
-  //sleep(1000);
-
-
-
-  //rotateZ(currentLat);
-
 
   push()
   texture(earthTexture);
@@ -148,21 +141,22 @@ function draw() {
 
   for (let i = 0; i < 6; i++) { //create the spheres
     push()
-    //print(document.getElementById(`slide${1}title) `));
-
-
     convert(citiesLat[i], citiesLong[i])
     translate(x, y, z)
     sphere(1)
     pop()
-    //rotateX(180);
+
     push()
+    if(citiesLat[i]>=0) {
     translate(x, y + hoverHeight * sin(frameCount * hoverSpeed), z)  //sin oscilates
     rotateX(180);
+    }
+    else {
+      translate(x, y + hoverHeight * sin(frameCount * hoverSpeed), z)  //sin oscilates
+    }
     fill(255, 0, 0)
     model(marker);
     pop()
-
   }
 }
 
