@@ -120,11 +120,6 @@ function draw() {
 
   if (topCities.length > 0) {
     getLongLat(topCities);
-    let currSlide = getCurrSlide();
-    let currCity = topCities[currSlide];
-    if ([0, 1, 2, 3, 4, 5].includes(currSlide)) {
-      console.log(topCities[currSlide].city)
-    }
   }
 
   rotate(currentLat, [-1, 0, 0]);
@@ -143,9 +138,6 @@ function draw() {
   pop()
 
   push()
-  translate(x, y, z)
-  //sphere(1);
-  //scale(1)
   model(marker)
   pop()
 

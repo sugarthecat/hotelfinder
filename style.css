@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: Arial, Helvetica, sans-serif;
   /* Hide scrollbars */
 }
 
@@ -32,7 +33,6 @@ p {
 }
 
 .slide {
-  font-family: Arial, sans-serif;
   margin: 0px;
   padding: 1px 0px;
   background-color: rgba(255, 255, 255, 0.7);
@@ -63,14 +63,16 @@ p {
   bottom:40%;
 }
 
-.hotelInfo {
+#hotelInfo {
+  outline: 5px solid white;
   position: absolute;
-  background-color:rgba(255, 255, 255, 0.6);
-  right:20px;
-  left: 85%;
-  top: 20px;
-  bottom: 40%;
-  color:300px;
+  background-color:rgba(255, 255, 255, 0.8);
+  right:2%;
+  left: 80%;
+  bottom: 20%;
+  top:20%;
+  border-radius: 10px;
+  padding: 5px;
 }
 
 /* #hotelName {
