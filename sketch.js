@@ -7,21 +7,22 @@ let xrot = 0.0;
 // Beijing, Hong Kong, Shanghai, Tokyo
 let citiesLat = [39.904202, 22.396427, 31.230391, 35.689487]
 let citiesLong = [116.407394, 114.109497, 121.473701, 139.691711]
-let i=0;
+let i = 0;
 
 
 let xcam, ycam, zcam
 let currentLat = 0;
-
 let currentLong = 0;
+let targetLat = 0;
+let targetLong = 0;
 let currentZoom = 600;
 let targetZoom = 600;
-
+let panning = true;
 
 // //Hong kong 
 
-let targetLat = 22.396427;
- let targetLong = 114.109497;
+//let targetLat = 22.396427;
+// let targetLong = 114.109497;
 // //Beijing
 
 // let targetLat = 39.904202
@@ -47,8 +48,8 @@ let targetLat = 22.396427;
 
 // //Washington DC
 
-// let targetLat = 38.892059
-// let targetLong = -77.019913
+//let targetLat = 38.892059
+//let targetLong = -77.019913
 
 // // //Iceland
 // let targetLat = 64.963051
@@ -64,7 +65,7 @@ let targetLat = 22.396427;
 
 
 function preload() {
-   earthTexture = loadImage("world.topo.bathy.200411.3x5400x2700.jpg");
+  earthTexture = loadImage("world.topo.bathy.200411.3x5400x2700.jpg");
   //earthTexture = loadImage("world21k.jpg");
 
 }
@@ -75,23 +76,48 @@ function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
   createCity()
 
+  let overlay = document.getElementById("overlay")
+  for (let i = 0; i < 5; i++) {
+    let newSlide = document.createElement("div");
+    newSlide.id = `slide${i + 4}`
+    newSlide.className = "cityslide slide"
+    newSlide.hidden = true;
+    let title = document.createElement("h1");
+    title.id = `slide${i}title`;
+    title.innerText = "Slide " + (i + 1)
+    let nxtBtn = document.createElement('button');
+    nxtBtn.innerText = "Next"
+    nxtBtn.onclick = function () {
+      switchToSlide((i + 1) % 5 + 4)
+    }
+    let prevBtn = document.createElement('button');
+    prevBtn.innerText = "Prev"
+    prevBtn.onclick = function () {
+      switchToSlide((i + 4) % 5 + 4)
+    }
+    newSlide.append(title)
+    newSlide.append(prevBtn)
+    newSlide.append(nxtBtn)
+    overlay.appendChild(newSlide)
+  }
+  setTargetZoom(0, 0, min(width, height) / 1.25);
   // createEasyCam(); // easycam
 }
 
 function draw() {
-  radius = min(width,height)/2.5;
+  radius = min(width, height) / 2.5;
   //orbitControl();
   getCamera();
 
-  
+
   background(0);
 
 
   currentZoom = lerp(currentZoom, targetZoom, 0.03)
   camera(0, 0, currentZoom);
-//250
+  //250
 
-//document.getElementById("pan").addEventListener("click", temp);
+  //document.getElementById("pan").addEventListener("click", temp);
 
 
 
@@ -102,28 +128,34 @@ function draw() {
   // directionalLight(255, 255, 255, 1, 0, 1);
   // directionalLight(255, 255, 255, 1, 0, 1);
   // directionalLight(255, 255, 255, 1, 0, 1);
-  currentLong = lerp(currentLong, 180-targetLong, 0.02)
-  currentLat= lerp(currentLat, targetLat, 0.02)
+  if (panning) {
+    setTargetZoom(0, 0, radius * 2)
+    targetLong += deltaTime * 0.01
+    targetLat = lerp(targetLat, 0, 0.02)
+  } else {
+    setTargetZoom(0, 0, radius * 1.3)
+  }
+  currentLong = lerp(currentLong, 180 - targetLong, 0.02)
+  currentLat = lerp(currentLat, targetLat, 0.02)
 
 
- 
+
 
 
   rotate(currentLat, [-1, 0, 0]);
   rotate(currentLong, [0, 1, 0]);
   //sleep(1000);
-  setTargetZoom(0, 0, 330);
 
 
 
   //rotateZ(currentLat);
 
 
-  push ()
+  push()
   texture(earthTexture);
   sphere(radius, 24, 24);
   rotateX(0.01)
-  pop ()
+  pop()
   //stroke(255)
   //strokeWeight(5)
 
@@ -133,27 +165,27 @@ function draw() {
   sphere(1);
   pop()
 
-  
 
 
 
 
-  }
+
+}
 
 
 function createCity() {
-    setInterval(writeStuff, 2000)
+  setInterval(writeStuff, 2000)
 }
 
 function writeStuff() {
-print("hello");
+  print("hello");
 }
 function addPoint() {
   push()
-    convert(citiesLat[i], citiesLong[i])
-    translate(x, y, z)
-    sphere(1);
-    pop()
+  convert(citiesLat[i], citiesLong[i])
+  translate(x, y, z)
+  sphere(1);
+  pop()
 }
 
 function windowResized() {
@@ -162,7 +194,7 @@ function windowResized() {
 
 function convert(lat, long) {
 
- long = -long;
+  long = -long;
 
   x = radius * cos(lat) * cos(long - 90);
   z = radius * cos(lat) * sin(long - 90);

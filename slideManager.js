@@ -2,6 +2,7 @@ let currSlide = 1;
 let userCities = []
 let destinations = []
 function switchToSlide(slide){
+    panning = slide <= 3;
     if(slide == 3){
         userCities = []
         for(let i = 1; i<=6; i++){
@@ -17,6 +18,10 @@ function switchToSlide(slide){
                 document.getElementById(`slide${i}title`).innerText = destinations[i].city
             }
         }
+    }
+    if(slide > 3){
+        targetLat = destinations[slide-4].lat;
+        targetLong = destinations[slide-4].lng;
     }
     document.getElementById(`slide${currSlide}`).hidden = true
     currSlide = slide;
