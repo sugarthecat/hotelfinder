@@ -24,9 +24,19 @@ function switchToSlide(slide){
         targetLat = destinations[slide-4].lat;
         targetLong = 180-destinations[slide-4].lng;
     }
-    document.getElementById(`slide${currSlide}`).hidden = true
+    document.getElementById(`slide${currSlide}`).hidden = true;
+    //print((i+1) + ") " + destinations[i].city)
+//    print(r)
+
+
     currSlide = slide;
     document.getElementById(`slide${currSlide}`).hidden = false
+    print(currSlide-4);
+}
+
+function getCurrSlide() {
+    return currSlide-4;
+
 }
 let cities = [];
 async function loadCities(){

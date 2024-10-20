@@ -73,9 +73,25 @@ p {
   color:300px;
 }
 
-#hotelName {
+/* #hotelName {
   font-weight: bold;
+} */
+
+#city{
+
 }
+#country{
+
+}
+
+#population{
+  
+}
+
+#GDP{
+  
+}
+
 
 button {
   background-color: orange;
