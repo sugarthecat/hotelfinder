@@ -7,7 +7,7 @@ function parseCities(citylist) {
     let uCities = citylist.slice() //undecided cities
     for (let i = 0; i < cities.length; i++) {
         for (let j = 0; j < uCities.length; j++) {
-            if (uCities[j].toLowerCase() == cities[i].city.toLowerCase()) {
+            if (uCities[j].toLowerCase() == cities[i].city_ascii.toLowerCase()) {
                 prevCities.push(cities[i]);
                 //newCities = cities able to reccommend. If this city has already been visited, but hasnt been reccommended.
                 if (newCities.includes(cities[i])) {
