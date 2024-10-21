@@ -21,8 +21,18 @@ function switchToSlide(slide) {
                 cityHotels[i] = [];
                 for (let j = 0; j < hotels.length; j++) {
                     if (hotels[j][" cityName"] == destinations[i].city_ascii && hotels[j][" countyName"] == destinations[i].country) {
-                        cityHotels[i].push(hotels[j]);
-                        if(cityHotels[i].length == 3){
+                        switch (hotels[j][" HotelRating"]) {
+                            case "ThreeStar":
+                                cityHotels[2] = hotels[j];
+                                break;
+                            case "FourStar":
+                                cityHotels[1] = hotels[j];
+                                break;
+                            case "FiveStar":
+                                cityHotels[0] = hotels[j];
+                                break;
+                        }
+                        if (cityHotels[i].length == 3 && cityHotels[0] !== null && cityHotels[1] !== null) {
                             break;
                         }
                     }
@@ -35,11 +45,11 @@ function switchToSlide(slide) {
         targetLong = 180 - destinations[slide - 4].lng;
         let hotels = cityHotels[slide - 4];
         document.getElementById("hotelInfo").hidden = (hotels.length == 0)
-        for(let i = 0; i<hotels.length; i++){
-            document.getElementById(`hotel${i+1}`).innerText = stringifyHotel(hotels[i])
+        for (let i = 0; i < hotels.length; i++) {
+            document.getElementById(`hotel${i + 1}`).innerText = stringifyHotel(hotels[i])
         }
-    }else{
-        
+    } else {
+
         document.getElementById("hotelInfo").hidden = true
     }
     document.getElementById(`slide${currSlide}`).hidden = true;
@@ -65,8 +75,10 @@ let hotels = [];
 async function loadHotels() {
     hotels = await fetch("tophotels.json").then(x => x.json());
 }
-function stringifyHotel(hotel){
-    
+function stringifyHotel(hotel) {
+    if (hotel === null) {
+        return "";
+    }
     starsSymbol = ""
     switch (hotel[" HotelRating"]) {
         case "ThreeStar":
