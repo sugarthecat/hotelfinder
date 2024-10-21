@@ -23,16 +23,16 @@ function switchToSlide(slide) {
                     if (hotels[j][" cityName"] == destinations[i].city_ascii && hotels[j][" countyName"] == destinations[i].country) {
                         switch (hotels[j][" HotelRating"]) {
                             case "ThreeStar":
-                                cityHotels[2] = hotels[j];
+                                cityHotels[i][2] = hotels[j];
                                 break;
                             case "FourStar":
-                                cityHotels[1] = hotels[j];
+                                cityHotels[i][1] = hotels[j];
                                 break;
                             case "FiveStar":
-                                cityHotels[0] = hotels[j];
+                                cityHotels[i][0] = hotels[j];
                                 break;
                         }
-                        if (cityHotels[i].length == 3 && cityHotels[0] !== null && cityHotels[1] !== null) {
+                        if (cityHotels[i].length == 3 && cityHotels[i][0] !== null && cityHotels[i][1] !== null) {
                             break;
                         }
                     }
@@ -76,7 +76,7 @@ async function loadHotels() {
     hotels = await fetch("tophotels.json").then(x => x.json());
 }
 function stringifyHotel(hotel) {
-    if (hotel === null) {
+    if (hotel === undefined) {
         return "";
     }
     starsSymbol = ""

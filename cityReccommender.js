@@ -10,7 +10,7 @@ function parseCities(citylist) {
     let uCities = citylist.slice() //undecided cities
     for (let i = 0; i < cities.length; i++) {
         for (let j = 0; j < uCities.length; j++) {
-            if (uCities[j].toLowerCase() == cities[i].city_ascii.toLowerCase()) {
+            if (uCities[j].toLowerCase() == cities[i].city_ascii.toLowerCase() || uCities[j].toLowerCase() == cities[i].country.toLowerCase()) {
                 prevCities.push(cities[i]);
                 //newCities = cities able to reccommend. If this city has already been visited, but hasnt been reccommended.
                 if (newCities.includes(cities[i])) {
@@ -66,6 +66,15 @@ function reccommendCities(citylist) {
     }
     if (isNaN(scoringFunction(newCities[0]))) {
         console.error("City scoring function producing invalid input")
+    }
+    for(let i = 0; i<topCities.length; i++){
+        for(let j = 0; j< topCities.length-1; j++){
+            if(scoringFunction(topCities[j]) < scoringFunction(topCities[j+1])){
+                let temp = topCities[j]
+                topCities[j] = topCities[j+1]
+                topCities[j+1] = temp;
+            }
+        }
     }
     for (let i = 6; i < newCities.length; i++) {
         if (scoringFunction(topCities[5]) < scoringFunction(newCities[i])) {
