@@ -32,7 +32,7 @@ function switchToSlide(slide) {
                                 cityHotels[i][0] = hotels[j];
                                 break;
                         }
-                        if (cityHotels[i].length == 3 && cityHotels[i][0] !== null && cityHotels[i][1] !== null) {
+                        if (cityHotels[i].length == 3 && cityHotels[i][0] !== undefined && cityHotels[i][1] !== undefined) {
                             break;
                         }
                     }
