@@ -1485,15 +1485,6 @@
         "GDP": 30567819393.905624
     },
     {
-        "city": "Tripoli",
-        "city_ascii": "Tripoli",
-        "lat": 32.8925,
-        "lng": 13.18,
-        "country": "Libya",
-        "population": 2189000.0,
-        "GDP": 16045318648.398794
-    },
-    {
         "city": "Tashkent",
         "city_ascii": "Tashkent",
         "lat": 41.3117,
@@ -2572,15 +2563,6 @@
         "country": "Bulgaria",
         "population": 1185000.0,
         "GDP": 18720150759.171127
-    },
-    {
-        "city": "Benghazi",
-        "city_ascii": "Benghazi",
-        "lat": 32.1167,
-        "lng": 20.0667,
-        "country": "Libya",
-        "population": 1180000.0,
-        "GDP": 8649372318.460749
     },
     {
         "city": "Prague",
