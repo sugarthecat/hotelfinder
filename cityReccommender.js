@@ -59,7 +59,7 @@ function reccommendCities(citylist) {
     //console.log(logpops,meanlogpop,popVariance)
     function scoringFunction(city) {
         let score = 0;
-        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist / 2;
+        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist;
         score -= Math.abs(meanlogpop - log(city.population)) / popVariance;
         score -= Math.abs(meanGDPCapita - city.GDP / city.population) / meanWealthVariance;
         return score
@@ -67,12 +67,12 @@ function reccommendCities(citylist) {
     if (isNaN(scoringFunction(newCities[0]))) {
         console.error("City scoring function producing invalid input")
     }
-    for(let i = 0; i<topCities.length; i++){
-        for(let j = 0; j< topCities.length-1; j++){
-            if(scoringFunction(topCities[j]) < scoringFunction(topCities[j+1])){
+    for (let i = 0; i < topCities.length; i++) {
+        for (let j = 0; j < topCities.length - 1; j++) {
+            if (scoringFunction(topCities[j]) < scoringFunction(topCities[j + 1])) {
                 let temp = topCities[j]
-                topCities[j] = topCities[j+1]
-                topCities[j+1] = temp;
+                topCities[j] = topCities[j + 1]
+                topCities[j + 1] = temp;
             }
         }
     }
