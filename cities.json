@@ -168,7 +168,7 @@
         "lng": 29.01,
         "country": "Turkey",
         "population": 10061000.0,
-        "GDP": null
+        "GDP": 147196152570.00
     },
     {
         "city": "Paris",
@@ -186,7 +186,7 @@
         "lng": 126.9997,
         "country": "South Korea",
         "population": 9796000.0,
-        "GDP": null
+        "GDP": 334680340000.00
     },
     {
         "city": "Lagos",
@@ -241,24 +241,6 @@
         "country": "Peru",
         "population": 8012000.0,
         "GDP": 62412446252.82457
-    },
-    {
-        "city": "Tehran",
-        "city_ascii": "Tehran",
-        "lat": 35.6719,
-        "lng": 51.4243,
-        "country": "Iran",
-        "population": 7873000.0,
-        "GDP": 35448547249.63808
-    },
-    {
-        "city": "Kinshasa",
-        "city_ascii": "Kinshasa",
-        "lat": -4.3297,
-        "lng": 15.315,
-        "country": "Republic of Congo",
-        "population": 7843000.0,
-        "GDP": 19676701888.174313
     },
     {
         "city": "Bogot\u00e1",
@@ -321,7 +303,7 @@
         "lng": 121.5683,
         "country": "Taiwan",
         "population": 6900273.0,
-        "GDP": null
+        "GDP": 226025342388.00
     },
     {
         "city": "Bengal\u016bru",
@@ -654,7 +636,7 @@
         "lng": 96.1667,
         "country": "Burma",
         "population": 4088000.0,
-        "GDP": null
+        "GDP": 4685829120.00
     },
     {
         "city": "Phoenix",
@@ -708,7 +690,7 @@
         "lng": -4.04,
         "country": "C\u00f4te D\u2019Ivoire",
         "population": 3802000.0,
-        "GDP": null
+        "GDP": 10999186000.00
     },
     {
         "city": "Bras\u00edlia",
@@ -726,7 +708,7 @@
         "lng": 32.8644,
         "country": "Turkey",
         "population": 3716000.0,
-        "GDP": null
+        "GDP": 54366454920.00
     },
     {
         "city": "Monterrey",
@@ -852,7 +834,7 @@
         "lng": 129.01,
         "country": "South Korea",
         "population": 3480000.0,
-        "GDP": null
+        "GDP": 118894200000.00
     },
     {
         "city": "Johannesburg",
@@ -898,15 +880,6 @@
         "country": "Colombia",
         "population": 3297000.0,
         "GDP": 23012153769.11833
-    },
-    {
-        "city": "Kabul",
-        "city_ascii": "Kabul",
-        "lat": 34.5167,
-        "lng": 69.1833,
-        "country": "Afghanistan",
-        "population": 3277000.0,
-        "GDP": 1155482433.3428347
     },
     {
         "city": "Athens",
@@ -1068,7 +1041,7 @@
         "lng": -66.917,
         "country": "Venezuela",
         "population": 2985000.0,
-        "GDP": null
+        "GDP": 11551950000.00
     },
     {
         "city": "Milan",
@@ -1221,7 +1194,7 @@
         "lng": 120.2666,
         "country": "Taiwan",
         "population": 2769072.0,
-        "GDP": null
+        "GDP": 90703722432.00
     },
     {
         "city": "Quezon City",
@@ -1242,15 +1215,6 @@
         "GDP": 60721917884.14268
     },
     {
-        "city": "Aleppo",
-        "city_ascii": "Aleppo",
-        "lat": 36.23,
-        "lng": 37.17,
-        "country": "Syria",
-        "population": 2738000.0,
-        "GDP": null
-    },
-    {
         "city": "Durban",
         "city_ascii": "Durban",
         "lat": -29.865,
@@ -1258,15 +1222,6 @@
         "country": "South Africa",
         "population": 2729000.0,
         "GDP": 17064878041.11326
-    },
-    {
-        "city": "Kyiv",
-        "city_ascii": "Kyiv",
-        "lat": 50.4334,
-        "lng": 30.5166,
-        "country": "Ukraine",
-        "population": 2709000.0,
-        "GDP": 14036311806.152344
     },
     {
         "city": "Lucknow",
@@ -1302,7 +1257,7 @@
         "lng": 120.6817,
         "country": "Taiwan",
         "population": 2629323.0,
-        "GDP": null
+        "GDP": 86126104188.00
     },
     {
         "city": "Ibadan",
@@ -1356,7 +1311,7 @@
         "lng": 27.1518,
         "country": "Turkey",
         "population": 2587000.0,
-        "GDP": null
+        "GDP": 37848767190.00
     },
     {
         "city": "Xiangtan",
@@ -1383,7 +1338,7 @@
         "lng": 126.6422,
         "country": "South Korea",
         "population": 2550000.0,
-        "GDP": null
+        "GDP": 87120750000.00
     },
     {
         "city": "Sapporo",
@@ -1422,31 +1377,13 @@
         "GDP": 29121685393.536
     },
     {
-        "city": "Mashhad",
-        "city_ascii": "Mashhad",
-        "lat": 36.27,
-        "lng": 59.57,
-        "country": "Iran",
-        "population": 2469000.0,
-        "GDP": 11116786886.746655
-    },
-    {
-        "city": "Damascus",
-        "city_ascii": "Damascus",
-        "lat": 33.5,
-        "lng": 36.3,
-        "country": "Syria",
-        "population": 2466000.0,
-        "GDP": null
-    },
-    {
         "city": "Daegu",
         "city_ascii": "Daegu",
         "lat": 35.8668,
         "lng": 128.607,
         "country": "South Korea",
         "population": 2460000.0,
-        "GDP": null
+        "GDP": 84045900000.00
     },
     {
         "city": "Tunis",
@@ -1662,7 +1599,7 @@
         "lng": -71.66,
         "country": "Venezuela",
         "population": 2072000.0,
-        "GDP": null
+        "GDP": 8018640000.00
     },
     {
         "city": "Kuwait City",
@@ -1761,7 +1698,7 @@
         "lng": 120.2,
         "country": "Taiwan",
         "population": 1876312.0,
-        "GDP": null
+        "GDP": 61460475872.00
     },
     {
         "city": "Asunci\u00f3n",
@@ -1851,7 +1788,7 @@
         "lng": -67.98,
         "country": "Venezuela",
         "population": 1770000.0,
-        "GDP": null
+        "GDP": 6849900000.00
     },
     {
         "city": "Hamburg",
@@ -2013,16 +1950,7 @@
         "lng": 121.2168,
         "country": "Taiwan",
         "population": 1632616.0,
-        "GDP": null
-    },
-    {
-        "city": "E\u015ffah\u0101n",
-        "city_ascii": "Esfahan",
-        "lat": 32.7,
-        "lng": 51.7,
-        "country": "Iran",
-        "population": 1628000.0,
-        "GDP": 7330145423.905854
+        "GDP": 53477969696.00
     },
     {
         "city": "Kansas City",
@@ -2059,15 +1987,6 @@
         "country": "Nigeria",
         "population": 1576000.0,
         "GDP": 2554890659.6044455
-    },
-    {
-        "city": "Harare",
-        "city_ascii": "Harare",
-        "lat": -17.8178,
-        "lng": 31.0447,
-        "country": "Zimbabwe",
-        "population": 1572000.0,
-        "GDP": 2503278853.8334804
     },
     {
         "city": "Indianapolis",
@@ -2193,7 +2112,7 @@
         "lng": 29.07,
         "country": "Turkey",
         "population": 1492000.0,
-        "GDP": null
+        "GDP": 21828512040.00
     },
     {
         "city": "Le\u00f3n de los Aldama",
@@ -2220,7 +2139,7 @@
         "lng": 127.425,
         "country": "South Korea",
         "population": 1468000.0,
-        "GDP": null
+        "GDP": 50154220000.00
     },
     {
         "city": "Charlotte",
@@ -2239,15 +2158,6 @@
         "country": "Cambodia",
         "population": 1466000.0,
         "GDP": 2748854792.5086174
-    },
-    {
-        "city": "Kharkiv",
-        "city_ascii": "Kharkiv",
-        "lat": 50.0,
-        "lng": 36.25,
-        "country": "Ukraine",
-        "population": 1461000.0,
-        "GDP": 7569971040.527344
     },
     {
         "city": "Bronx",
@@ -2319,7 +2229,7 @@
         "lng": 126.9104,
         "country": "South Korea",
         "population": 1440000.0,
-        "GDP": null
+        "GDP": 49197600000.00
     },
     {
         "city": "Kawanakajima",
@@ -2349,15 +2259,6 @@
         "GDP": 63267743794.43238
     },
     {
-        "city": "Karaj",
-        "city_ascii": "Karaj",
-        "lat": 35.8004,
-        "lng": 50.97,
-        "country": "Iran",
-        "population": 1423000.0,
-        "GDP": 6407123426.423851
-    },
-    {
         "city": "Kampala",
         "city_ascii": "Kampala",
         "lat": 0.3167,
@@ -2365,15 +2266,6 @@
         "country": "Uganda",
         "population": 1420000.0,
         "GDP": 1440183848.3788152
-    },
-    {
-        "city": "Tabr\u012bz",
-        "city_ascii": "Tabriz",
-        "lat": 38.0863,
-        "lng": 46.3012,
-        "country": "Iran",
-        "population": 1413000.0,
-        "GDP": 6362097963.132047
     },
     {
         "city": "The Hague",
@@ -2448,24 +2340,6 @@
         "GDP": 66832525988.64879
     },
     {
-        "city": "Brazzaville",
-        "city_ascii": "Brazzaville",
-        "lat": -4.2592,
-        "lng": 15.2847,
-        "country": "Democratic Republic of the Congo",
-        "population": 1355000.0,
-        "GDP": 879590103.6578301
-    },
-    {
-        "city": "Lubumbashi",
-        "city_ascii": "Lubumbashi",
-        "lat": -11.68,
-        "lng": 27.48,
-        "country": "Republic of Congo",
-        "population": 1352000.0,
-        "GDP": 3391929230.245017
-    },
-    {
         "city": "Ju\u00e1rez",
         "city_ascii": "Juarez",
         "lat": 31.6904,
@@ -2526,16 +2400,7 @@
         "lng": 96.085,
         "country": "Burma",
         "population": 1300000.0,
-        "GDP": null
-    },
-    {
-        "city": "Mbuji-Mayi",
-        "city_ascii": "Mbuji-Mayi",
-        "lat": -6.15,
-        "lng": 23.6,
-        "country": "Republic of Congo",
-        "population": 1295000.0,
-        "GDP": 3248926296.7213736
+        "GDP": 1490112000.00
     },
     {
         "city": "Adana",
@@ -2544,7 +2409,7 @@
         "lng": 35.32,
         "country": "Turkey",
         "population": 1293000.0,
-        "GDP": null
+        "GDP": 18917068410.00
     },
     {
         "city": "Sheffield",
@@ -2617,15 +2482,6 @@
         "country": "Switzerland",
         "population": 1240000.0,
         "GDP": 123993723145.39346
-    },
-    {
-        "city": "Sh\u012br\u0101z",
-        "city_ascii": "Shiraz",
-        "lat": 29.63,
-        "lng": 52.57,
-        "country": "Iran",
-        "population": 1240000.0,
-        "GDP": 5583157448.18382
     },
     {
         "city": "D\u00fcsseldorf",
@@ -2832,7 +2688,7 @@
         "lng": -69.3,
         "country": "Venezuela",
         "population": 1116000.0,
-        "GDP": null
+        "GDP": 4318920000.00
     },
     {
         "city": "Helsinki",
@@ -2994,7 +2850,7 @@
         "lng": 128.5836,
         "country": "South Korea",
         "population": 1081499.0,
-        "GDP": null
+        "GDP": 36949413335.00
     },
     {
         "city": "Suwon",
@@ -3003,7 +2859,7 @@
         "lng": 127.0109,
         "country": "South Korea",
         "population": 1078000.0,
-        "GDP": null
+        "GDP": 36829870000.00
     },
     {
         "city": "Nashville",
@@ -3039,7 +2895,7 @@
         "lng": 129.317,
         "country": "South Korea",
         "population": 1061000.0,
-        "GDP": null
+        "GDP": 36249065000.00
     },
     {
         "city": "Amman",
@@ -3087,15 +2943,6 @@
         "GDP": 14535532285.15625
     },
     {
-        "city": "Dnipro",
-        "city_ascii": "Dnipro",
-        "lat": 48.48,
-        "lng": 35.0,
-        "country": "Ukraine",
-        "population": 1050000.0,
-        "GDP": 5440430932.6171875
-    },
-    {
         "city": "Lille",
         "city_ascii": "Lille",
         "lat": 50.65,
@@ -3111,7 +2958,7 @@
         "lng": 37.385,
         "country": "Turkey",
         "population": 1044000.0,
-        "GDP": null
+        "GDP": 15274106280.00
     },
     {
         "city": "Monrovia",
@@ -3255,7 +3102,7 @@
         "lng": -67.5958,
         "country": "Venezuela",
         "population": 1007000.0,
-        "GDP": null
+        "GDP": 3897090000.00
     },
     {
         "city": "Rotterdam",
@@ -3265,15 +3112,6 @@
         "country": "Netherlands",
         "population": 1005000.0,
         "GDP": 62849415689.96418
-    },
-    {
-        "city": "Homs",
-        "city_ascii": "Homs",
-        "lat": 34.73,
-        "lng": 36.72,
-        "country": "Syria",
-        "population": 1005000.0,
-        "GDP": null
     },
     {
         "city": "Cologne",
@@ -3327,7 +3165,7 @@
         "lng": 96.1186,
         "country": "Burma",
         "population": 930000.0,
-        "GDP": null
+        "GDP": 1066003200.00
     },
     {
         "city": "Djibouti",
@@ -3399,7 +3237,7 @@
         "lng": 74.5852,
         "country": "Kyrgyzstan",
         "population": 837000.0,
-        "GDP": null
+        "GDP": 1057959630.00
     },
     {
         "city": "Oslo",
@@ -3507,7 +3345,7 @@
         "lng": 18.383,
         "country": "Bosnia And Herzegovina",
         "population": 696731.0,
-        "GDP": null
+        "GDP": 4364113964.00
     },
     {
         "city": "Chisinau",
@@ -3526,15 +3364,6 @@
         "country": "Malawi",
         "population": 646750.0,
         "GDP": 435178479.91246337
-    },
-    {
-        "city": "Asmara",
-        "city_ascii": "Asmara",
-        "lat": 15.3333,
-        "lng": 38.9333,
-        "country": "Eritrea",
-        "population": 620802.0,
-        "GDP": null
     },
     {
         "city": "Abu Dhabi",
@@ -3588,7 +3417,7 @@
         "lng": 21.4335,
         "country": "Macedonia",
         "population": 494087.0,
-        "GDP": null
+        "GDP": 4024832702.00
     },
     {
         "city": "Bloemfontein",
@@ -3606,7 +3435,7 @@
         "lng": 17.117,
         "country": "Slovakia",
         "population": 423737.0,
-        "GDP": null
+        "GDP": 10989619095.00
     },
     {
         "city": "Bissau",
@@ -3714,7 +3543,7 @@
         "lng": 114.9333,
         "country": "Brunei",
         "population": 296500.0,
-        "GDP": null
+        "GDP": 11215409000.00
     },
     {
         "city": "Port of Spain",
@@ -3723,7 +3552,7 @@
         "lng": -61.517,
         "country": "Trinidad And Tobago",
         "population": 294934.0,
-        "GDP": null
+        "GDP": 5789259486.00
     },
     {
         "city": "Port Moresby",
@@ -3840,7 +3669,7 @@
         "lng": -5.2755,
         "country": "C\u00f4te D\u2019Ivoire",
         "population": 206499.0,
-        "GDP": null
+        "GDP": 597401607.00
     },
     {
         "city": "Bridgetown",
@@ -3885,7 +3714,7 @@
         "lng": -69.02,
         "country": "Cura\u00e7ao",
         "population": 146813.0,
-        "GDP": null
+        "GDP": 3009960126.00
     },
     {
         "city": "Podgorica",
@@ -3975,7 +3804,7 @@
         "lng": 6.7333,
         "country": "Sao Tome And Principe",
         "population": 88219.0,
-        "GDP": null
+        "GDP": 229545838.00
     },
     {
         "city": "Honiara",
@@ -4020,7 +3849,7 @@
         "lng": -61.2121,
         "country": "Saint Vincent And The Grenadines",
         "population": 49485.0,
-        "GDP": null
+        "GDP": 422537074.65
     },
     {
         "city": "Port-Vila",
@@ -4056,7 +3885,7 @@
         "lng": -61.0,
         "country": "Saint Lucia",
         "population": 37963.0,
-        "GDP": null
+        "GDP": 429541094.99
     },
     {
         "city": "Monaco",
@@ -4083,7 +3912,7 @@
         "lng": -61.85,
         "country": "Antigua And Barbuda",
         "population": 35499.0,
-        "GDP": null
+        "GDP": 591022851.00
     },
     {
         "city": "Saint George\u2019s",
@@ -4146,7 +3975,7 @@
         "lng": -62.717,
         "country": "Saint Kitts And Nevis",
         "population": 21887.0,
-        "GDP": null
+        "GDP": 383307031.00
     },
     {
         "city": "Belmopan",
@@ -4209,7 +4038,7 @@
         "lng": 35.2269,
         "country": "West Bank",
         "population": 983000.0,
-        "GDP": null
+        "GDP": 3310744000.00
     },
     {
         "city": "Philipsburg",

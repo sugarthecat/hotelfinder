@@ -41,9 +41,9 @@ function reccommendCities(citylist) {
     let meanlogpop = mean(logpops)
     let popVariance = max(0.001, meanVariance(logpops, meanlogpop))
     //GDP per capita
-    let gdpPerCapita = divideArr(getField(prevCities, "GDP"), getField(prevCities, "population"))
-    let meanGDPCapita = mean(gdpPerCapita);
-    let meanWealthVariance = max(0.001, meanVariance(gdpPerCapita, meanGDPCapita));
+    let gdpPerCapita = applyFunction(divideArr(getField(prevCities, "GDP"), getField(prevCities, "population")),log)
+    let avgGDPCapita = mean(gdpPerCapita);
+    let meanWealthVariance = max(0.001, meanVariance(gdpPerCapita, avgGDPCapita));
     //distance
     let latitudes = getField(prevCities, "lat")
     let avgLatitude = mean(latitudes)
@@ -59,9 +59,9 @@ function reccommendCities(citylist) {
     //console.log(logpops,meanlogpop,popVariance)
     function scoringFunction(city) {
         let score = 0;
-        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist;
+        score -= cityDist({ lng: avgLong, lat: avgLatitude }, city) / avgDist / 2;
         score -= Math.abs(meanlogpop - log(city.population)) / popVariance;
-        score -= Math.abs(meanGDPCapita - city.GDP / city.population) / meanWealthVariance;
+        score -= Math.abs(avgGDPCapita - log(city.GDP / city.population)) / meanWealthVariance;
         return score
     }
     if (isNaN(scoringFunction(newCities[0]))) {
